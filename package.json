@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "dev": "cross-env DEBUG=usay:server,usay:database nodemon bin/www",
-    "start": "cross-env DEBUG=usay:server node bin/www",
+    "start": "cross-env DEBUG=usay:server forever start bin/www -l logs/forever.log -o logs/out.log -e logs/err.log",
+    "restart": "forever restart bin/www",
+    "stop": "forever stop bin/www",
     "test": "cross-env DEBUG=usay:server,usay:database,usay:test node tests/models"
   },
   "author": "Marco, et al.",
